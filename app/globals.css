@@ -4,8 +4,8 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 223 40% 11%; /* Tailwind gray-900 */
+    --background: 42 33% 96%;
+    --foreground: 222 39% 12%;
 
     --card: 0 0% 100%;
     --card-foreground: 223 40% 11%;
@@ -13,68 +13,189 @@
     --popover: 0 0% 100%;
     --popover-foreground: 223 40% 11%;
 
-    --primary: 31 96% 58%;
-    --primary-foreground: 210 40% 98%;
+    --primary: 24 94% 58%;
+    --primary-foreground: 40 33% 98%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 223 40% 11%;
+    --secondary: 39 27% 90%;
+    --secondary-foreground: 222 39% 12%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215 16% 47%; /* Tailwind gray-600-ish */
+    --muted: 39 24% 92%;
+    --muted-foreground: 218 18% 39%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 223 40% 11%;
+    --accent: 38 44% 86%;
+    --accent-foreground: 222 39% 12%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 214 32% 91%;
-    --input: 214 32% 91%;
+    --border: 30 20% 84%;
+    --input: 30 20% 84%;
     --ring: 222.2 84% 4.9%;
 
-    --radius: 0.5rem;
+    --radius: 1rem;
   }
 
   .dark {
-    --background: 240 4% 16%; /* Tailwind zinc-800 */
-    --foreground: 240 5% 96%; /* Tailwind zinc-100 */
+    --background: 222 28% 8%;
+    --foreground: 42 25% 94%;
 
-    --card: 240 4% 20%;
-    --card-foreground: 240 5% 96%;
+    --card: 223 23% 12%;
+    --card-foreground: 42 25% 94%;
 
-    --popover: 240 4% 16%;
-    --popover-foreground: 240 5% 96%;
+    --popover: 223 23% 10%;
+    --popover-foreground: 42 25% 94%;
 
-    --primary: 31 96% 58%;
-    --primary-foreground: 210 40% 98%;
+    --primary: 24 94% 61%;
+    --primary-foreground: 222 28% 8%;
 
-    --secondary: 240 4% 26%;
-    --secondary-foreground: 240 5% 96%;
+    --secondary: 217 16% 18%;
+    --secondary-foreground: 42 25% 94%;
 
-    --muted: 240 4% 26%;
-    --muted-foreground: 240 5% 65%; /* Tailwind zinc-400 */
+    --muted: 219 16% 15%;
+    --muted-foreground: 32 12% 68%;
 
-    --accent: 240 4% 26%;
-    --accent-foreground: 240 5% 96%;
+    --accent: 219 16% 17%;
+    --accent-foreground: 42 25% 94%;
 
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 240 5% 96%;
 
-    --border: 240 4% 26%;
-    --input: 240 4% 26%;
-    --ring: 240 5% 84%;
+    --border: 219 14% 22%;
+    --input: 219 14% 22%;
+    --ring: 31 84% 74%;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    min-height: 100vh;
+    background:
+      radial-gradient(circle at top, rgba(250, 152, 47, 0.1), transparent 28%),
+      hsl(var(--background));
+    color: hsl(var(--foreground));
+    font-family: var(--font-montserrat), sans-serif;
+    text-rendering: optimizeLegibility;
+  }
+
+  ::selection {
+    background: rgba(245, 74, 72, 0.22);
+  }
+
+  a,
+  button {
+    -webkit-tap-highlight-color: transparent;
   }
 }
 
 @layer utilities {
+  .font-display {
+    font-family: var(--font-fjalla), sans-serif;
+    letter-spacing: 0.02em;
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .page-shell {
+    @apply relative isolate overflow-x-hidden;
+  }
+
+  .grain-overlay::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.16;
+    background-image:
+      linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+    background-size: 24px 24px;
+    mask-image: radial-gradient(circle at center, black 30%, transparent 92%);
+  }
+
   .animate-fade-in {
-    animation: fadeIn 0.8s ease-in;
+    animation: fadeIn 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  .animate-rise {
+    animation: riseIn 1.1s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  .animate-hero-card {
+    animation: heroCardIn 1s cubic-bezier(0.22, 1, 0.36, 1) both;
+    will-change: transform, opacity, filter;
+    transform-origin: 50% 80%;
+  }
+
+  .animate-hero-card-soft {
+    animation: heroCardInSoft 1s cubic-bezier(0.22, 1, 0.36, 1) both;
+    will-change: transform, opacity, filter;
+    transform-origin: 50% 80%;
+  }
+
+  .animate-delay-1 {
+    animation-delay: 0.12s;
+  }
+
+  .animate-delay-2 {
+    animation-delay: 0.24s;
+  }
+
+  .animate-delay-3 {
+    animation-delay: 0.36s;
+  }
+
+  .animate-delay-4 {
+    animation-delay: 0.48s;
+  }
+
+  .section-divider {
+    @apply border-t border-border/70;
+  }
+
+  .reveal-base {
+    opacity: 0;
+    transform: translateY(26px) scale(0.985);
+    filter: blur(6px);
+    transition:
+      opacity 620ms cubic-bezier(0.22, 1, 0.36, 1),
+      transform 620ms cubic-bezier(0.22, 1, 0.36, 1),
+      filter 620ms cubic-bezier(0.22, 1, 0.36, 1);
+    will-change: opacity, transform, filter;
+  }
+
+  .reveal-visible {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+  }
+
+  .eyebrow {
+    @apply inline-flex items-center gap-2 uppercase tracking-[0.28em] text-[0.7rem] font-semibold text-muted-foreground;
+  }
+
+  .link-arrow::after {
+    content: '↗';
+    margin-left: 0.45rem;
+    display: inline-block;
+    transition: transform 200ms ease;
+  }
+
+  .link-arrow:hover::after {
+    transform: translate(2px, -2px);
   }
 
   @keyframes fadeIn {
     from {
       opacity: 0;
-      transform: translateY(20px);
+      transform: translateY(24px);
     }
     to {
       opacity: 1;
@@ -82,8 +203,59 @@
     }
   }
 
-  /* Smooth scrolling */
-  html {
-    scroll-behavior: smooth;
+  @keyframes riseIn {
+    from {
+      opacity: 0;
+      transform: translateY(32px) scale(0.98);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+
+  @keyframes heroCardIn {
+    from {
+      opacity: 0;
+      transform: translateY(30px) scale(0.96) rotateX(4deg);
+      filter: blur(7px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0) scale(1) rotateX(0deg);
+      filter: blur(0);
+    }
+  }
+
+  @keyframes heroCardInSoft {
+    from {
+      opacity: 0;
+      transform: translateY(24px) scale(0.97);
+      filter: blur(6px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+      filter: blur(0);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .animate-fade-in,
+    .animate-rise,
+    .animate-hero-card,
+    .animate-hero-card-soft,
+    .animate-delay-1,
+    .animate-delay-2,
+    .animate-delay-3,
+    .animate-delay-4,
+    .reveal-base,
+    .reveal-visible {
+      animation: none;
+      transition: none;
+      opacity: 1;
+      transform: none;
+      filter: none;
+    }
   }
 }

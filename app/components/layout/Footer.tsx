@@ -5,33 +5,39 @@ import { Container } from '../ui/Container';
 
 export function Footer() {
   return (
-    <footer className="py-12 bg-background text-muted-foreground border-t border-border">
-      <Container>
-        <div className="flex flex-col md:flex-row md:justify-between md:items-start gap-8 mb-8">
-          {/* Company Info */}
-          <div className="md:max-w-xs">
-            <div className="flex items-center gap-3 mb-4">
-              <Image src={logo} alt="Cotersus Logo" className="w-10 h-10" />
-              <h3 className="font-fjalla text-2xl bg-gradient-brand bg-clip-text text-transparent">
-                Cotersus
-              </h3>
+    <footer className="border-t border-border/70 bg-[#111417] text-stone-200">
+      <Container className="py-14">
+        <div className="grid gap-12 lg:grid-cols-[1.3fr_0.9fr_0.9fr]">
+          <div className="max-w-md">
+            <div className="mb-5 flex items-center gap-3">
+              <div className="flex h-12 w-12 items-center justify-center rounded-full border border-white/10 bg-white/5">
+                <Image src={logo} alt="Cotersus Logo" className="h-8 w-8" />
+              </div>
+              <div>
+                <h3 className="font-display text-2xl text-white">Cotersus</h3>
+                <p className="text-[0.7rem] uppercase tracking-[0.3em] text-stone-400">
+                  IT Consulting
+                </p>
+              </div>
             </div>
-            <p className="text-sm text-muted-foreground">
-              Your reliable partner for full-stack software development solutions
+            <p className="text-sm leading-7 text-stone-400">
+              Senior software development, technical direction, and team
+              coaching for organizations that want to ship and keep their codebase healthy.
             </p>
           </div>
 
-          {/* Contact Info */}
           <div>
-            <h4 className="font-semibold text-foreground mb-4">Contact</h4>
-            <div className="space-y-2 text-sm">
+            <h4 className="mb-4 text-sm font-semibold uppercase tracking-[0.22em] text-stone-500">
+              Contact
+            </h4>
+            <div className="space-y-2 text-sm text-stone-300">
               <p>Cotersus BV</p>
               <p>Beigemsesteenweg 387, 1852 Beigem, Belgium</p>
               <p>VAT: BE 0791.547.318</p>
               <p>
                 <a
                   href="mailto:info@cotersus.be"
-                  className="hover:text-brand-orange transition-colors"
+                  className="text-primary transition-colors hover:text-white"
                 >
                   info@cotersus.be
                 </a>
@@ -39,15 +45,16 @@ export function Footer() {
             </div>
           </div>
 
-          {/* Social & Legal */}
           <div>
-            <h4 className="font-semibold text-foreground mb-4">Connect</h4>
-            <div className="flex gap-4 mb-4">
+            <h4 className="mb-4 text-sm font-semibold uppercase tracking-[0.22em] text-stone-500">
+              Connect
+            </h4>
+            <div className="mb-5 flex gap-3">
               <a
                 href="https://www.linkedin.com/company/88920103"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 bg-secondary rounded-full flex items-center justify-center hover:bg-gradient-brand transition-all duration-300 transform hover:scale-110"
+                className="flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-white/5 transition-all duration-300 hover:-translate-y-0.5 hover:border-primary/60 hover:bg-primary hover:text-[#111417]"
                 aria-label="LinkedIn"
               >
                 <svg
@@ -62,7 +69,7 @@ export function Footer() {
                 href="https://x.com/CotersusIT"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 bg-secondary rounded-full flex items-center justify-center hover:bg-gradient-brand transition-all duration-300 transform hover:scale-110"
+                className="flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-white/5 transition-all duration-300 hover:-translate-y-0.5 hover:border-primary/60 hover:bg-primary hover:text-[#111417]"
                 aria-label="X (Twitter)"
               >
                 <svg
@@ -77,7 +84,7 @@ export function Footer() {
                 href="https://bsky.app/profile/cotersus.be"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 bg-secondary rounded-full flex items-center justify-center hover:bg-gradient-brand transition-all duration-300 transform hover:scale-110"
+                className="flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-white/5 transition-all duration-300 hover:-translate-y-0.5 hover:border-primary/60 hover:bg-primary hover:text-[#111417]"
                 aria-label="Bluesky"
               >
                 <svg
@@ -89,10 +96,10 @@ export function Footer() {
                 </svg>
               </a>
             </div>
-            <div className="text-sm space-y-2">
+            <div className="space-y-2 text-sm text-stone-400">
               <Link
                 href="/privacy"
-                className="block hover:text-brand-orange transition-colors"
+                className="block transition-colors hover:text-white"
               >
                 Privacy Policy
               </Link>
@@ -100,7 +107,7 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="pt-8 border-t border-border text-center text-sm text-muted-foreground">
+        <div className="mt-12 border-t border-white/10 pt-6 text-sm text-stone-500">
           <p>
             &copy; {new Date().getFullYear()} Cotersus BV. All rights
             reserved.
