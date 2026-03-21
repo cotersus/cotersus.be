@@ -8,11 +8,20 @@ export function ThemeToggle() {
 
   useEffect(() => {
     setMounted(true);
+    const rootClasses = document.documentElement.classList;
     const savedTheme = localStorage.getItem('theme') as 'light' | 'dark' | null;
     const prefersDark = window.matchMedia(
       '(prefers-color-scheme: dark)',
     ).matches;
-    const initialTheme = savedTheme || (prefersDark ? 'dark' : 'light');
+    const initialTheme =
+      savedTheme ||
+      (rootClasses.contains('dark')
+        ? 'dark'
+        : rootClasses.contains('light')
+          ? 'light'
+          : prefersDark
+            ? 'dark'
+            : 'light');
     setTheme(initialTheme);
   }, []);
 
@@ -31,16 +40,11 @@ export function ThemeToggle() {
   return (
     <button
       onClick={toggleTheme}
-      className="relative inline-flex h-8 w-14 items-center rounded-full bg-gray-200 dark:bg-zinc-700 transition-colors duration-300 hover:bg-gray-300 dark:hover:bg-zinc-600"
+      className="relative inline-flex h-11 w-11 items-center justify-center rounded-full border border-border bg-background/70 text-base text-foreground backdrop-blur-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-primary/40 hover:bg-background"
       aria-label="Toggle theme"
     >
-      <span
-        className={`${
-          theme === 'dark' ? 'translate-x-7' : 'translate-x-1'
-        } inline-block h-6 w-6 transform rounded-full bg-white dark:bg-zinc-900 shadow-lg transition-transform duration-300 flex items-center justify-center`}
-      >
-        {theme === 'dark' ? '🌙' : '☀️'}
-      </span>
+      <span className="sr-only">Toggle theme</span>
+      <span aria-hidden>{theme === 'dark' ? '☀' : '☾'}</span>
     </button>
   );
 }

@@ -39,11 +39,11 @@ const origin = getOriginUrl();
 export const metadata = {
   metadataBase: new URL(origin),
   title: {
-    default: 'Cotersus IT Consulting | Quality Software Development',
+    default: 'Cotersus IT Consulting | Senior Software Delivery',
     template: '%s | Cotersus',
   },
   description:
-    'Belgian IT consulting company specializing in full-stack development, developer coaching, and digital solutions. Expert in React, Angular, Next.js, and TypeScript.',
+    'Belgian IT consulting company for senior software development, technical coaching, and modern web platforms. Expertise in React, Angular, Next.js, Nx, and TypeScript.',
   keywords: [
     'IT consulting Belgium',
     'software development',
@@ -78,9 +78,9 @@ export const metadata = {
     locale: 'en_BE',
     url: origin,
     siteName: 'Cotersus',
-    title: 'Cotersus IT Consulting | Quality Software Development',
+    title: 'Cotersus IT Consulting | Senior Software Delivery',
     description:
-      'Belgian IT consulting company specializing in full-stack development, developer coaching, and digital solutions. Expert in React, Angular, Next.js, and TypeScript.',
+      'Belgian IT consulting company for senior software development, technical coaching, and modern web platforms.',
     images: [
       {
         url: '/logo-og.png',
@@ -92,9 +92,9 @@ export const metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Cotersus IT Consulting | Quality Software Development',
+    title: 'Cotersus IT Consulting | Senior Software Delivery',
     description:
-      'Belgian IT consulting company specializing in full-stack development, developer coaching, and digital solutions.',
+      'Belgian IT consulting company for senior software development, technical coaching, and modern web platforms.',
     creator: '@robinpel',
     site: '@cotersusIT',
     images: ['/logo-og.png'],
@@ -127,7 +127,7 @@ export default function RootLayout({
     url: origin,
     logo: `${origin}/logo-og.png`,
     description:
-      'Belgian IT consulting company specializing in full-stack development, developer coaching, and digital solutions.',
+      'Belgian IT consulting company for senior software development, technical coaching, and modern web platforms.',
     address: {
       '@type': 'PostalAddress',
       streetAddress: 'Beigemsesteenweg 387',
@@ -171,7 +171,7 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className="bg-white text-gray-900 dark:bg-zinc-800 dark:text-zinc-100 font-inter transition-colors duration-300">
+      <body className="transition-colors duration-300">
         <div className="flex min-h-screen flex-col">{children}</div>
         <Analytics />
         <SpeedInsights />
