@@ -38,7 +38,7 @@ const dictionary = {
       description:
         'Belgian IT consulting company for senior software development, technical coaching, and modern web platforms.',
       contactType: 'Customer Service',
-      availableLanguage: ['en', 'nl'],
+      availableLanguage: ['en', 'nl', 'fr'],
       streetAddress: 'Beigemsesteenweg 387',
       locality: 'Beigem',
       postalCode: '1852',

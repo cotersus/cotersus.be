@@ -3,9 +3,11 @@ import Link from 'next/link';
 import logo from '@/public/logo.svg';
 import { ThemeToggle } from '@/components/ui/ThemeToggle';
 import { Container } from '@/components/ui/Container';
+import { LanguageSwitcher } from '@/components/layout/LanguageSwitcher';
+import type { AppLocale } from '@/i18n/config';
 
 interface HeaderProps {
-  lang: string;
+  lang: AppLocale;
   content: {
     logoAlt: string;
     companyName: string;
@@ -38,7 +40,10 @@ export function Header({ lang, content }: HeaderProps) {
             </p>
           </div>
         </Link>
-        <ThemeToggle label={content.themeToggleLabel} />
+        <div className="flex items-center gap-2 sm:gap-3">
+          <LanguageSwitcher currentLang={lang} />
+          <ThemeToggle label={content.themeToggleLabel} />
+        </div>
       </Container>
     </header>
   );

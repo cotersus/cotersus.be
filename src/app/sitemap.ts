@@ -1,4 +1,5 @@
 import { MetadataRoute } from 'next';
+import { locales } from '@/i18n/config';
 
 // Determine the base URL based on the environment
 const getBaseUrl = () => {
@@ -13,38 +14,24 @@ const getBaseUrl = () => {
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = getBaseUrl();
-  const localePath = `${baseUrl}/en`;
+  const lastModified = new Date();
 
-  return [
-    {
-      url: localePath,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 1,
-    },
-    {
-      url: `${localePath}/#services`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.8,
-    },
-    {
-      url: `${localePath}/#technologies`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.8,
-    },
-    {
-      url: `${localePath}/#projects`,
-      lastModified: new Date(),
-      changeFrequency: 'weekly',
-      priority: 0.9,
-    },
-    {
-      url: `${localePath}/privacy`,
-      lastModified: new Date(),
-      changeFrequency: 'yearly',
-      priority: 0.3,
-    },
-  ];
+  return locales.flatMap((locale) => {
+    const localePath = `${baseUrl}/${locale}`;
+
+    return [
+      {
+        url: localePath,
+        lastModified,
+        changeFrequency: 'monthly',
+        priority: 1,
+      },
+      {
+        url: `${localePath}/privacy`,
+        lastModified,
+        changeFrequency: 'yearly',
+        priority: 0.3,
+      },
+    ];
+  });
 }

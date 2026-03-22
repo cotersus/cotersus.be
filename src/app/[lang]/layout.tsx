@@ -1,15 +1,13 @@
 import '../globals.css';
-
 import { Fjalla_One, Montserrat, Inter } from 'next/font/google';
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/next';
-
 import { Footer } from '@/components/layout/Footer';
 import { Header } from '@/components/layout/Header';
 import { getDictionary } from '@/app/[lang]/dictionaries';
-import { isValidLocale, locales } from '@/i18n/config';
+import { defaultLocale, isValidLocale, locales } from '@/i18n/config';
 
 const fjalla = Fjalla_One({
   subsets: ['latin'],
@@ -57,6 +55,10 @@ export async function generateMetadata({ params }: LayoutProps): Promise<Metadat
   }
 
   const dictionary = await getDictionary(lang);
+  const localizedUrl = `${origin}/${lang}`;
+  const languageAlternates = Object.fromEntries(
+    locales.map((locale) => [locale, `${origin}/${locale}`]),
+  );
 
   return {
     metadataBase: new URL(origin),
@@ -80,10 +82,17 @@ export async function generateMetadata({ params }: LayoutProps): Promise<Metadat
       shortcut: '/favicon.ico',
       apple: '/icon-192.png',
     },
+    alternates: {
+      canonical: localizedUrl,
+      languages: {
+        ...languageAlternates,
+        'x-default': `${origin}/${defaultLocale}`,
+      },
+    },
     openGraph: {
       type: 'website',
       locale: dictionary.metadata.openGraph.locale,
-      url: origin,
+      url: localizedUrl,
       siteName: dictionary.metadata.openGraph.siteName,
       title: dictionary.metadata.openGraph.title,
       description: dictionary.metadata.openGraph.description,
