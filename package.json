@@ -17,6 +17,9 @@
     "test:e2e:install": "playwright install chromium"
   },
   "private": true,
+  "overrides": {
+    "flatted": "^3.4.2"
+  },
   "dependencies": {
     "@vercel/analytics": "^1.5.0",
     "@vercel/speed-insights": "^1.2.0",
