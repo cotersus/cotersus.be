@@ -28,10 +28,10 @@ export function HeroSection({
         <div className="absolute bottom-[-14%] right-[-4%] h-96 w-96 rounded-full bg-brand-red/20 blur-3xl" />
       </div>
 
-      <div className="relative mx-auto grid max-w-7xl gap-10 sm:gap-14 lg:grid-cols-[minmax(0,0.82fr)_minmax(0,1.18fr)] lg:items-center">
-        <div className="max-w-xl lg:pb-8">
+      <div className="relative mx-auto grid max-w-7xl gap-10 sm:gap-14 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] lg:items-center xl:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)]">
+        <div className="min-w-0 max-w-xl lg:pb-8">
           <Eyebrow className="animate-fade-in">{content.eyebrow}</Eyebrow>
-          <h1 className="font-display animate-rise animate-delay-1 mt-4 max-w-3xl text-balance text-[clamp(2.35rem,11.5vw,5.8rem)] uppercase leading-[0.9] text-slate-950 dark:text-white sm:mt-5">
+          <h1 className="font-display animate-rise animate-delay-1 mt-4 max-w-full text-pretty text-[clamp(2.35rem,10vw,5.35rem)] uppercase leading-[1.05] text-slate-950 dark:text-white sm:mt-5 lg:leading-[1.02]">
             {content.title}
           </h1>
           <p className="animate-fade-in animate-delay-2 mt-5 max-w-lg text-[1.03rem] leading-7 text-slate-700 dark:text-stone-300 sm:mt-6 sm:text-lg sm:leading-8">

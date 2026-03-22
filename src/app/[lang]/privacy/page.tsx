@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { getDictionary } from '@/app/[lang]/dictionaries';
-import { isValidLocale } from '@/i18n/config';
+import { isValidLocale, type AppLocale } from '@/i18n/config';
 import { Button } from '@/components/ui/Button';
 import { Container } from '@/components/ui/Container';
 import { Section } from '@/components/ui/Section';
@@ -10,6 +10,12 @@ import { Heading, Text } from '@/components/ui/Typography';
 interface PrivacyPageProps {
   params: Promise<{ lang: string }>;
 }
+
+const dateLocales: Record<AppLocale, string> = {
+  en: 'en-US',
+  nl: 'nl-BE',
+  fr: 'fr-BE',
+};
 
 export async function generateMetadata({ params }: PrivacyPageProps): Promise<Metadata> {
   const { lang } = await params;
@@ -43,7 +49,7 @@ export default async function PrivacyPage({ params }: PrivacyPageProps) {
             </Heading>
             <Text variant="tiny">
               {content.lastUpdatedLabel}{' '}
-              {new Date().toLocaleDateString(lang === 'en' ? 'en-US' : 'en-US', {
+              {new Date().toLocaleDateString(dateLocales[lang], {
                 year: 'numeric',
                 month: 'long',
                 day: 'numeric',
