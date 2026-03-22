@@ -11,19 +11,24 @@ export function HomePage(viewModel: HomePageViewModel) {
     <div className="page-shell">
       <main>
         <HeroSection
+          content={viewModel.content.hero}
           heroProjects={viewModel.heroProjects}
           supportProject={viewModel.supportProject}
           getProjectClientsLabel={viewModel.getProjectClientsLabel}
         />
-        <CapabilitiesSection />
+        <CapabilitiesSection content={viewModel.content.capabilities} />
         <ProjectsSection
+          content={viewModel.content.projects}
           featuredProject={viewModel.featuredProject}
           listedSelectedProjects={viewModel.listedSelectedProjects}
           getProjectClientsLabel={viewModel.getProjectClientsLabel}
         />
-        <ProcessSection />
-        <TechnologiesSection displayTechnologies={viewModel.displayTechnologies} />
-        <CallToActionSection />
+        <ProcessSection content={viewModel.content.process} />
+        <TechnologiesSection
+          content={viewModel.content.technologies}
+          displayTechnologies={viewModel.displayTechnologies}
+        />
+        <CallToActionSection content={viewModel.content.cta} />
       </main>
     </div>
   );

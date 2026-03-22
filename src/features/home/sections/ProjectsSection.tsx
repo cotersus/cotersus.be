@@ -6,16 +6,18 @@ import { Reveal } from '@/components/ui/Reveal';
 import { SectionIntro } from '@/components/ui/SectionIntro';
 import { SectionShell } from '@/components/ui/SectionShell';
 import { Text } from '@/components/ui/Typography';
-import { projectsContent } from '@/features/home/content';
-import type { Project } from '@/data/projects';
+import type { Dictionary } from '@/app/[lang]/dictionaries';
+import type { LocalizedProject } from '@/features/home/types';
 
 interface ProjectsSectionProps {
-  featuredProject: Project;
-  listedSelectedProjects: Project[];
-  getProjectClientsLabel: (clientKeys: Project['clients']) => string;
+  content: Dictionary['home']['projects'];
+  featuredProject: LocalizedProject;
+  listedSelectedProjects: LocalizedProject[];
+  getProjectClientsLabel: (clientKeys: LocalizedProject['clients']) => string;
 }
 
 export function ProjectsSection({
+  content,
   featuredProject,
   listedSelectedProjects,
   getProjectClientsLabel,
@@ -24,9 +26,9 @@ export function ProjectsSection({
     <SectionShell id="projects" className="py-20">
       <Reveal>
         <SectionIntro
-          eyebrow={projectsContent.eyebrow}
-          title={projectsContent.title}
-          description={projectsContent.description}
+          eyebrow={content.eyebrow}
+          title={content.title}
+          description={content.description}
           className="max-w-2xl"
           titleClassName="text-3xl sm:text-6xl"
         />
@@ -49,7 +51,7 @@ export function ProjectsSection({
           <div className="flex flex-col gap-5 lg:pt-2">
             <div>
               <SectionIntro
-                eyebrow={projectsContent.featuredEyebrow}
+                eyebrow={content.featuredEyebrow}
                 title={featuredProject.title}
                 className="max-w-md"
                 titleClassName="text-3xl sm:text-5xl"
@@ -62,7 +64,7 @@ export function ProjectsSection({
                 showArrow
                 className="mt-5 inline-block text-sm font-semibold uppercase tracking-[0.18em] text-foreground"
               >
-                {projectsContent.viewProjectLabel}
+                {content.viewProjectLabel}
               </ExternalLink>
             </div>
           </div>
@@ -96,10 +98,10 @@ export function ProjectsSection({
                   </h3>
                   <Text variant="metaXs" className="mt-2 sm:mt-3">{getProjectClientsLabel(project.clients)}</Text>
                   <Text variant="bodySm" className="mt-3 hidden sm:block">{project.description}</Text>
-                  <ArrowLabel size="xs" className="mt-3 md:hidden">{projectsContent.viewProjectLabel}</ArrowLabel>
+                  <ArrowLabel size="xs" className="mt-3 md:hidden">{content.viewProjectLabel}</ArrowLabel>
                 </div>
                 <div className="hidden md:block md:pt-1">
-                  <ArrowLabel>{projectsContent.viewProjectLabel}</ArrowLabel>
+                  <ArrowLabel>{content.viewProjectLabel}</ArrowLabel>
                 </div>
               </ExternalLink>
             </Reveal>

@@ -6,25 +6,47 @@ import { BlueskyIcon, LinkedInIcon, XIcon } from '@/components/icons/SocialIcons
 import { IconCircleLink } from '@/components/ui/IconCircleLink';
 import { OverlineHeading } from '@/components/ui/OverlineHeading';
 
-const socialLinks = [
-  {
-    href: 'https://www.linkedin.com/company/88920103',
-    label: 'LinkedIn',
-    icon: <LinkedInIcon />,
-  },
-  {
-    href: 'https://x.com/CotersusIT',
-    label: 'X (Twitter)',
-    icon: <XIcon />,
-  },
-  {
-    href: 'https://bsky.app/profile/cotersus.be',
-    label: 'Bluesky',
-    icon: <BlueskyIcon />,
-  },
-];
+interface FooterProps {
+  lang: string;
+  content: {
+    logoAlt: string;
+    companyName: string;
+    companyTagline: string;
+    blurb: string;
+    contactHeading: string;
+    contactCompany: string;
+    contactAddress: string;
+    contactVat: string;
+    connectHeading: string;
+    privacyLabel: string;
+    copyrightSuffix: string;
+    socialLinks: {
+      linkedin: string;
+      x: string;
+      bluesky: string;
+    };
+  };
+}
 
-export function Footer() {
+export function Footer({ lang, content }: FooterProps) {
+  const socialLinks = [
+    {
+      href: 'https://www.linkedin.com/company/88920103',
+      label: content.socialLinks.linkedin,
+      icon: <LinkedInIcon />,
+    },
+    {
+      href: 'https://x.com/CotersusIT',
+      label: content.socialLinks.x,
+      icon: <XIcon />,
+    },
+    {
+      href: 'https://bsky.app/profile/cotersus.be',
+      label: content.socialLinks.bluesky,
+      icon: <BlueskyIcon />,
+    },
+  ];
+
   return (
     <footer className="border-t border-border/70 bg-[#111417] text-stone-200">
       <Container className="py-14">
@@ -32,27 +54,26 @@ export function Footer() {
           <div className="max-w-md">
             <div className="mb-5 flex items-center gap-3">
               <div className="flex h-12 w-12 items-center justify-center rounded-full border border-white/10 bg-white/5">
-                <Image src={logo} alt="Cotersus Logo" className="h-8 w-8" />
+                <Image src={logo} alt={content.logoAlt} className="h-8 w-8" />
               </div>
               <div>
-                <h3 className="font-display text-2xl text-white">Cotersus</h3>
+                <h3 className="font-display text-2xl text-white">{content.companyName}</h3>
                 <p className="text-[0.7rem] uppercase tracking-[0.3em] text-stone-400">
-                  IT Consulting
+                  {content.companyTagline}
                 </p>
               </div>
             </div>
             <p className="text-sm leading-7 text-stone-400">
-              Senior software development, technical direction, and team
-              coaching for organizations that want to ship and keep their codebase healthy.
+              {content.blurb}
             </p>
           </div>
 
           <div>
-            <OverlineHeading>Contact</OverlineHeading>
+            <OverlineHeading>{content.contactHeading}</OverlineHeading>
             <div className="space-y-2 text-sm text-stone-300">
-              <p>Cotersus BV</p>
-              <p>Beigemsesteenweg 387, 1852 Beigem, Belgium</p>
-              <p>VAT: BE 0791.547.318</p>
+              <p>{content.contactCompany}</p>
+              <p>{content.contactAddress}</p>
+              <p>{content.contactVat}</p>
               <p>
                 <a
                   href="mailto:info@cotersus.be"
@@ -65,7 +86,7 @@ export function Footer() {
           </div>
 
           <div>
-            <OverlineHeading>Connect</OverlineHeading>
+            <OverlineHeading>{content.connectHeading}</OverlineHeading>
             <div className="mb-5 flex gap-3">
               {socialLinks.map((social) => (
                 <IconCircleLink key={social.label} href={social.href} aria-label={social.label}>
@@ -75,10 +96,10 @@ export function Footer() {
             </div>
             <div className="space-y-2 text-sm text-stone-400">
               <Link
-                href="/privacy"
+                href={`/${lang}/privacy`}
                 className="block transition-colors hover:text-white"
               >
-                Privacy Policy
+                {content.privacyLabel}
               </Link>
             </div>
           </div>
@@ -86,8 +107,7 @@ export function Footer() {
 
         <div className="mt-12 border-t border-white/10 pt-6 text-sm text-stone-500">
           <p>
-            &copy; {new Date().getFullYear()} Cotersus BV. All rights
-            reserved.
+            &copy; {new Date().getFullYear()} {content.contactCompany}. {content.copyrightSuffix}
           </p>
         </div>
       </Container>

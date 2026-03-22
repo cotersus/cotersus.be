@@ -1,7 +1,7 @@
 import type { ReactElement } from 'react';
 
 export interface Technology {
-  name: string;
+  name?: string;
   url?: string;
   icon?: ReactElement;
   isCoreTechnology?: boolean;
@@ -115,7 +115,7 @@ export const technologies: Record<string, Technology> = {
     ),
   },
   angularjs: {
-    name: 'Angular.js',
+    name: 'AngularJS',
     url: 'https://angularjs.org/',
     icon: (
       <svg className="w-12 h-12" viewBox="0 0 24 24">

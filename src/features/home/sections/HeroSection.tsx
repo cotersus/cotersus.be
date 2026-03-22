@@ -3,16 +3,18 @@ import Image from 'next/image';
 import { ActionButtons } from '@/components/ui/ActionButtons';
 import { Eyebrow } from '@/components/ui/Eyebrow';
 import { LabelValueGrid } from '@/components/ui/LabelValueGrid';
-import { heroContent } from '@/features/home/content';
-import type { Project } from '@/data/projects';
+import type { Dictionary } from '@/app/[lang]/dictionaries';
+import type { LocalizedProject } from '@/features/home/types';
 
 interface HeroSectionProps {
-  heroProjects: Project[];
-  supportProject: Project;
-  getProjectClientsLabel: (clientKeys: Project['clients']) => string;
+  content: Dictionary['home']['hero'];
+  heroProjects: LocalizedProject[];
+  supportProject: LocalizedProject;
+  getProjectClientsLabel: (clientKeys: LocalizedProject['clients']) => string;
 }
 
 export function HeroSection({
+  content,
   heroProjects,
   supportProject,
   getProjectClientsLabel,
@@ -28,23 +30,23 @@ export function HeroSection({
 
       <div className="relative mx-auto grid max-w-7xl gap-10 sm:gap-14 lg:grid-cols-[minmax(0,0.82fr)_minmax(0,1.18fr)] lg:items-center">
         <div className="max-w-xl lg:pb-8">
-          <Eyebrow className="animate-fade-in">{heroContent.eyebrow}</Eyebrow>
+          <Eyebrow className="animate-fade-in">{content.eyebrow}</Eyebrow>
           <h1 className="font-display animate-rise animate-delay-1 mt-4 max-w-3xl text-balance text-[clamp(2.35rem,11.5vw,5.8rem)] uppercase leading-[0.9] text-slate-950 dark:text-white sm:mt-5">
-            {heroContent.title}
+            {content.title}
           </h1>
           <p className="animate-fade-in animate-delay-2 mt-5 max-w-lg text-[1.03rem] leading-7 text-slate-700 dark:text-stone-300 sm:mt-6 sm:text-lg sm:leading-8">
-            {heroContent.description}
+            {content.description}
           </p>
 
           <div className="animate-fade-in animate-delay-2 mt-8">
             <ActionButtons
-              primary={heroContent.primaryCta}
-              secondary={heroContent.secondaryCta}
+              primary={content.primaryCta}
+              secondary={content.secondaryCta}
             />
           </div>
 
           <LabelValueGrid
-            items={heroContent.highlights}
+            items={content.highlights}
             className="animate-fade-in animate-delay-3 mt-10 grid gap-5 border-t border-black/10 pt-7 sm:mt-12 sm:pt-8 sm:grid-cols-3 sm:gap-6 dark:border-white/10"
           />
         </div>
@@ -69,7 +71,7 @@ export function HeroSection({
               </div>
 
               <div className="absolute left-4 top-4 rounded-full border border-white/15 bg-black/30 px-4 py-2 text-[0.66rem] uppercase tracking-[0.24em] text-white/80 backdrop-blur sm:left-6 sm:top-6 sm:text-[0.68rem]">
-                {heroContent.cards.featuredBadge}
+                {content.cards.featuredBadge}
               </div>
 
               <div className="absolute inset-x-0 bottom-0 p-4 sm:p-8">
@@ -106,7 +108,7 @@ export function HeroSection({
                 </div>
                 <div className="p-4 sm:p-5">
                   <p className="text-[0.68rem] uppercase tracking-[0.2em] text-stone-200 sm:text-[0.64rem] sm:tracking-[0.22em] sm:text-stone-300">
-                    {heroContent.cards.supportingBadge}
+                    {content.cards.supportingBadge}
                   </p>
                   <p className="mt-2 font-display text-[1.85rem] uppercase leading-none text-white sm:text-2xl">
                     {secondaryHero.title}
@@ -138,7 +140,7 @@ export function HeroSection({
 
                 <div className="border-t border-white/10 p-4 sm:p-5">
                   <p className="text-[0.68rem] uppercase tracking-[0.2em] text-stone-200 sm:text-[0.64rem] sm:tracking-[0.22em] sm:text-stone-300">
-                    {heroContent.cards.platformBadge}
+                    {content.cards.platformBadge}
                   </p>
                   <p className="mt-2 font-display text-[1.85rem] uppercase leading-none text-white sm:text-2xl">
                     {supportProject.title}
