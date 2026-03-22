@@ -104,13 +104,13 @@ export default function Index() {
       <Header />
 
       <main>
-        <section className="grain-overlay relative isolate overflow-hidden bg-[#efe7d8] px-4 pb-12 pt-24 text-foreground sm:px-6 sm:pb-14 sm:pt-28 dark:bg-[#111417] dark:text-stone-100 lg:min-h-screen lg:px-8 lg:pb-20 lg:pt-32">
+        <section className="grain-overlay relative isolate overflow-hidden bg-[#efe7d8] px-4 pb-12 pt-20 text-foreground sm:px-6 sm:pb-14 sm:pt-28 dark:bg-[#111417] dark:text-stone-100 lg:min-h-screen lg:px-8 lg:pb-20 lg:pt-32">
           <div className="absolute inset-0">
             <div className="absolute left-[-10%] top-[-8%] h-72 w-72 rounded-full bg-primary/20 blur-3xl" />
             <div className="absolute bottom-[-14%] right-[-4%] h-96 w-96 rounded-full bg-brand-red/20 blur-3xl" />
           </div>
 
-          <div className="relative mx-auto grid max-w-7xl gap-10 sm:gap-14 lg:grid-cols-[minmax(0,0.82fr)_minmax(0,1.18fr)] lg:items-center">
+          <div className="relative mx-auto grid max-w-7xl gap-8 sm:gap-14 lg:grid-cols-[minmax(0,0.82fr)_minmax(0,1.18fr)] lg:items-center">
             <div className="max-w-xl lg:pb-8">
               <p className="eyebrow animate-fade-in">Cotersus / IT consulting / Belgium</p>
               <h1 className="font-display animate-rise animate-delay-1 mt-4 max-w-3xl text-balance text-[clamp(2.35rem,11.5vw,5.8rem)] uppercase leading-[0.9] text-slate-950 dark:text-white sm:mt-5">
@@ -122,43 +122,43 @@ export default function Index() {
                 technical direction.
               </p>
 
-              <div className="animate-fade-in animate-delay-2 mt-8 flex flex-col gap-4 sm:flex-row">
+              <div className="animate-fade-in animate-delay-2 mt-8 flex flex-col gap-3 sm:flex-row sm:gap-4">
                 <a
                   href="mailto:info@cotersus.be"
-                  className="inline-flex min-h-12 items-center justify-center rounded-full bg-primary px-7 py-3 text-sm font-semibold uppercase tracking-[0.18em] text-[#111417] transition-all duration-300 hover:-translate-y-0.5 hover:brightness-105"
+                  className="inline-flex min-h-12 w-full items-center justify-center rounded-full bg-primary px-7 py-3 text-sm font-semibold uppercase tracking-[0.18em] text-[#111417] transition-all duration-300 hover:-translate-y-0.5 hover:brightness-105 sm:w-auto"
                 >
                   Book an intro call
                 </a>
                 <a
                   href="#projects"
-                  className="inline-flex min-h-12 items-center justify-center rounded-full border border-foreground/15 px-7 py-3 text-sm font-semibold uppercase tracking-[0.18em] text-foreground transition-all duration-300 hover:-translate-y-0.5 hover:border-foreground/35 hover:bg-foreground/5 dark:border-white/15 dark:text-white dark:hover:border-white/40 dark:hover:bg-white/5"
+                  className="inline-flex min-h-12 w-full items-center justify-center rounded-full border border-foreground/15 px-7 py-3 text-sm font-semibold uppercase tracking-[0.18em] text-foreground transition-all duration-300 hover:-translate-y-0.5 hover:border-foreground/35 hover:bg-foreground/5 dark:border-white/15 dark:text-white dark:hover:border-white/40 dark:hover:bg-white/5 sm:w-auto"
                 >
                   See recent work
                 </a>
               </div>
 
-              <div className="animate-fade-in animate-delay-3 mt-10 grid gap-5 border-t border-black/10 pt-7 sm:mt-12 sm:pt-8 sm:grid-cols-3 sm:gap-6 dark:border-white/10">
-                <div>
-                  <p className="text-[0.72rem] uppercase tracking-[0.26em] text-slate-500 dark:text-stone-500">
+              <div className="animate-fade-in animate-delay-3 mt-9 border-y border-black/10 py-5 sm:mt-12 sm:grid sm:grid-cols-3 sm:gap-6 sm:border-t sm:border-b-0 sm:py-0 sm:pt-8 dark:border-white/10">
+                <div className="py-3 first:pt-0 sm:block sm:py-0">
+                  <p className="text-[0.64rem] uppercase tracking-[0.3em] text-slate-500 dark:text-stone-500 sm:text-[0.72rem] sm:tracking-[0.26em]">
                     Focus
                   </p>
-                  <p className="mt-2 text-sm text-slate-800 dark:text-stone-200">
+                  <p className="mt-2 max-w-[16rem] text-[1rem] leading-7 text-slate-800 dark:text-stone-200 sm:max-w-none sm:text-sm sm:leading-6">
                     Product delivery, consulting, coaching
                   </p>
                 </div>
-                <div>
-                  <p className="text-[0.72rem] uppercase tracking-[0.26em] text-slate-500 dark:text-stone-500">
+                <div className="border-t border-black/10 py-3 sm:block sm:border-t-0 sm:py-0 dark:border-white/10">
+                  <p className="text-[0.64rem] uppercase tracking-[0.3em] text-slate-500 dark:text-stone-500 sm:text-[0.72rem] sm:tracking-[0.26em]">
                     Stack
                   </p>
-                  <p className="mt-2 text-sm text-slate-800 dark:text-stone-200">
+                  <p className="mt-2 max-w-[16rem] text-[1rem] leading-7 text-slate-800 dark:text-stone-200 sm:max-w-none sm:text-sm sm:leading-6">
                     Next.js, Angular, TypeScript, Nx
                   </p>
                 </div>
-                <div>
-                  <p className="text-[0.72rem] uppercase tracking-[0.26em] text-slate-500 dark:text-stone-500">
+                <div className="border-t border-black/10 py-3 last:pb-0 sm:block sm:border-t-0 sm:py-0 dark:border-white/10">
+                  <p className="text-[0.64rem] uppercase tracking-[0.3em] text-slate-500 dark:text-stone-500 sm:text-[0.72rem] sm:tracking-[0.26em]">
                     Approach
                   </p>
-                  <p className="mt-2 text-sm text-slate-800 dark:text-stone-200">
+                  <p className="mt-2 max-w-[16rem] text-[1rem] leading-7 text-slate-800 dark:text-stone-200 sm:max-w-none sm:text-sm sm:leading-6">
                     Clear scope. Clean code. Practical delivery.
                   </p>
                 </div>
@@ -281,7 +281,7 @@ export default function Index() {
                 The support you need to ship with confidence.
               </h2>
             </div>
-            <div className="grid gap-8 border-t border-border/70 pt-6 md:grid-cols-3 md:gap-6 md:border-t-0 md:pt-0">
+            <div className="grid gap-8 pt-6 md:grid-cols-3 md:gap-6 md:pt-0">
               {capabilityPillars.map((pillar, index) => (
                 <Reveal
                   key={pillar.title}
@@ -300,7 +300,7 @@ export default function Index() {
           </Reveal>
         </section>
 
-        <section id="projects" className="section-divider px-4 py-20 sm:px-6 lg:px-8">
+        <section id="projects" className="section-divider px-4 pb-9 pt-16 sm:px-6 sm:py-20 lg:px-8">
           <Reveal className="mx-auto max-w-7xl">
             <div className="max-w-2xl">
               <p className="eyebrow">Selected work</p>
@@ -366,15 +366,15 @@ export default function Index() {
                 <Reveal
                   key={project.title}
                   delayMs={70 + index * 55}
-                  className="border-t border-border/70 py-7"
+                  className="border-t border-border/70 py-4 first:border-t-0 sm:py-7"
                 >
                   <a
                     href={project.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="group grid grid-cols-[6.9rem_minmax(0,1fr)] items-start gap-4 sm:grid-cols-[8rem_minmax(0,1fr)] sm:gap-5 md:grid-cols-[10rem_1fr] md:gap-6 lg:grid-cols-[12rem_1fr_auto]"
+                    className="group grid grid-cols-[5.25rem_minmax(0,1fr)] items-start gap-3 sm:grid-cols-[8rem_minmax(0,1fr)] sm:gap-5 md:grid-cols-[10rem_1fr] md:gap-6 lg:grid-cols-[12rem_1fr_auto]"
                   >
-                    <div className="relative overflow-hidden rounded-[1.2rem] bg-card sm:rounded-[1.4rem] md:rounded-[1.6rem]">
+                    <div className="relative overflow-hidden rounded-[1rem] bg-card sm:rounded-[1.4rem] md:rounded-[1.6rem]">
                       <div className="relative aspect-[1.1]">
                         <Image
                           src={project.image}
@@ -384,20 +384,20 @@ export default function Index() {
                         />
                       </div>
                     </div>
-                    <div className="max-w-2xl">
-                      <p className="text-[0.64rem] uppercase tracking-[0.2em] text-muted-foreground sm:text-[0.72rem] sm:tracking-[0.24em]">
+                    <div className="max-w-2xl pt-1 sm:self-center sm:pt-0">
+                      <p className="text-[0.6rem] uppercase tracking-[0.18em] text-muted-foreground sm:text-[0.72rem] sm:tracking-[0.24em]">
                         {project.role}
                       </p>
-                      <h3 className="font-display mt-2 text-[2rem] uppercase leading-[0.94] text-foreground sm:mt-3 sm:text-3xl">
+                      <h3 className="font-display mt-1.5 max-w-[11rem] text-[1.65rem] uppercase leading-[0.98] text-foreground sm:mt-3 sm:max-w-none sm:text-3xl sm:leading-[0.94]">
                         {project.title}
                       </h3>
-                      <p className="mt-2 text-[0.64rem] uppercase tracking-[0.18em] text-muted-foreground sm:mt-3 sm:text-[0.72rem] sm:tracking-[0.22em]">
+                      <p className="mt-1.5 text-[0.62rem] uppercase tracking-[0.16em] text-muted-foreground sm:mt-3 sm:text-[0.72rem] sm:tracking-[0.22em]">
                         {getProjectClientsLabel(project.clients)}
                       </p>
                       <p className="mt-3 hidden text-sm leading-7 text-muted-foreground sm:block">
                         {project.description}
                       </p>
-                      <span className="link-arrow mt-3 inline-block text-xs font-semibold uppercase tracking-[0.17em] text-foreground md:hidden">
+                      <span className="link-arrow mt-2.5 inline-block text-[0.72rem] font-semibold uppercase tracking-[0.16em] text-foreground md:hidden">
                         View project
                       </span>
                     </div>
@@ -413,7 +413,7 @@ export default function Index() {
           </Reveal>
         </section>
 
-        <section className="section-divider px-4 py-20 sm:px-6 lg:px-8">
+        <section className="section-divider px-4 pb-16 pt-12 sm:px-6 sm:py-20 lg:px-8">
           <Reveal className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[0.95fr_1.05fr] lg:items-start">
             <div className="lg:sticky lg:top-28">
               <p className="eyebrow">Method</p>
