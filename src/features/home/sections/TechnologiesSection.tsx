@@ -2,24 +2,25 @@ import { Reveal } from '@/components/ui/Reveal';
 import { SectionIntro } from '@/components/ui/SectionIntro';
 import { SectionShell } from '@/components/ui/SectionShell';
 import { Text } from '@/components/ui/Typography';
-import { technologiesContent } from '@/features/home/content';
+import type { Dictionary } from '@/app/[lang]/dictionaries';
 import type { DisplayTechnology } from '@/features/home/types';
 
 interface TechnologiesSectionProps {
+  content: Dictionary['home']['technologies'];
   displayTechnologies: DisplayTechnology[];
 }
 
-export function TechnologiesSection({ displayTechnologies }: TechnologiesSectionProps) {
+export function TechnologiesSection({ content, displayTechnologies }: TechnologiesSectionProps) {
   return (
     <SectionShell>
       <Reveal>
         <div className="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
           <SectionIntro
-            eyebrow={technologiesContent.eyebrow}
-            title={technologiesContent.title}
+            eyebrow={content.eyebrow}
+            title={content.title}
             className="max-w-2xl"
           />
-          <Text variant="bodySm" className="max-w-xl">{technologiesContent.description}</Text>
+          <Text variant="bodySm" className="max-w-xl">{content.description}</Text>
         </div>
 
         <div className="mt-10 flex flex-wrap gap-3">

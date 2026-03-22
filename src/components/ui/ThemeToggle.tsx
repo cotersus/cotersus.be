@@ -2,7 +2,11 @@
 
 import { useState, useSyncExternalStore } from 'react';
 
-export function ThemeToggle() {
+interface ThemeToggleProps {
+  label: string;
+}
+
+export function ThemeToggle({ label }: ThemeToggleProps) {
   const isHydrated = useSyncExternalStore(
     () => () => {},
     () => true,
@@ -40,9 +44,9 @@ export function ThemeToggle() {
     <button
       onClick={toggleTheme}
       className="relative inline-flex h-11 w-11 items-center justify-center rounded-full border border-border bg-background/70 text-base text-foreground backdrop-blur-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-primary/40 hover:bg-background"
-      aria-label="Toggle theme"
+      aria-label={label}
     >
-      <span className="sr-only">Toggle theme</span>
+      <span className="sr-only">{label}</span>
       <span aria-hidden>{isHydrated ? (theme === 'dark' ? '☀' : '☾') : '◐'}</span>
     </button>
   );

@@ -2,22 +2,26 @@ import { Reveal } from '@/components/ui/Reveal';
 import { SectionIntro } from '@/components/ui/SectionIntro';
 import { SectionShell } from '@/components/ui/SectionShell';
 import { Text } from '@/components/ui/Typography';
-import { process, processContent } from '@/features/home/content';
+import type { Dictionary } from '@/app/[lang]/dictionaries';
 
-export function ProcessSection() {
+interface ProcessSectionProps {
+  content: Dictionary['home']['process'];
+}
+
+export function ProcessSection({ content }: ProcessSectionProps) {
   return (
     <SectionShell className="py-20">
       <Reveal className="grid gap-12 lg:grid-cols-[0.95fr_1.05fr] lg:items-start">
         <SectionIntro
-          eyebrow={processContent.eyebrow}
-          title={processContent.title}
-          description={processContent.description}
+          eyebrow={content.eyebrow}
+          title={content.title}
+          description={content.description}
           className="lg:sticky lg:top-28"
           titleClassName="text-3xl sm:text-6xl"
         />
 
         <div className="grid gap-6">
-          {process.map((step, index) => (
+          {content.steps.map((step, index) => (
             <Reveal
               key={step.label}
               delayMs={90 + index * 90}

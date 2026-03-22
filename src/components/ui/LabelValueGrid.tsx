@@ -6,7 +6,7 @@ interface LabelValueItem {
 }
 
 interface LabelValueGridProps {
-  items: LabelValueItem[];
+  items: readonly LabelValueItem[];
   className?: string;
 }
 

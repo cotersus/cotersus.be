@@ -2,19 +2,23 @@ import { Reveal } from '@/components/ui/Reveal';
 import { SectionIntro } from '@/components/ui/SectionIntro';
 import { SectionShell } from '@/components/ui/SectionShell';
 import { Text } from '@/components/ui/Typography';
-import { capabilityContent, capabilityPillars } from '@/features/home/content';
+import type { Dictionary } from '@/app/[lang]/dictionaries';
 
-export function CapabilitiesSection() {
+interface CapabilitiesSectionProps {
+  content: Dictionary['home']['capabilities'];
+}
+
+export function CapabilitiesSection({ content }: CapabilitiesSectionProps) {
   return (
     <SectionShell>
       <Reveal className="grid gap-8 lg:grid-cols-[0.8fr_1.2fr] lg:items-start">
         <SectionIntro
-          eyebrow={capabilityContent.eyebrow}
-          title={capabilityContent.title}
+          eyebrow={content.eyebrow}
+          title={content.title}
           className="max-w-md"
         />
         <div className="grid gap-8 border-t border-border/70 pt-6 md:grid-cols-3 md:gap-6 md:border-t-0 md:pt-0">
-          {capabilityPillars.map((pillar, index) => (
+          {content.pillars.map((pillar, index) => (
             <Reveal
               key={pillar.title}
               delayMs={100 + index * 90}
