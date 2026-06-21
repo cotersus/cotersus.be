@@ -1,4 +1,4 @@
-import Image from 'next/image';
+import ExportedImage from 'next-image-export-optimizer';
 import Link from 'next/link';
 import logo from '@/public/logo.svg';
 import { ThemeToggle } from '@/components/ui/ThemeToggle';
@@ -25,7 +25,7 @@ export function Header({ lang, content }: HeaderProps) {
       <Container className="relative flex items-center justify-between py-3 sm:py-4">
         <Link href={`/${lang}`} className="flex items-center gap-3 group">
           <div className="flex h-10 w-10 items-center justify-center rounded-full border border-[#d6c8af] bg-[#f8f2e8]/95 backdrop-blur-sm transition-colors duration-300 group-hover:border-primary/50 dark:border-white/10 dark:bg-background/75 sm:h-12 sm:w-12">
-            <Image
+            <ExportedImage
               src={logo}
               alt={content.logoAlt}
               className="h-6 w-6 transition-opacity group-hover:opacity-80 sm:h-8 sm:w-8"

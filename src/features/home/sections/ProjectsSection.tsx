@@ -1,4 +1,4 @@
-import Image from 'next/image';
+import ExportedImage from 'next-image-export-optimizer';
 
 import { ExternalLink } from '@/components/ui/ExternalLink';
 import { ArrowLabel } from '@/components/ui/ArrowLabel';
@@ -37,7 +37,7 @@ export function ProjectsSection({
           <ExternalLink href={featuredProject.url} className="group">
             <div className="relative overflow-hidden rounded-[2.4rem] bg-[#161a1f] shadow-[0_28px_60px_rgba(15,23,42,0.16)] dark:shadow-[0_28px_60px_rgba(0,0,0,0.28)]">
               <div className="relative aspect-[1.08]">
-                <Image
+                <ExportedImage
                   src={featuredProject.image}
                   alt={featuredProject.alt}
                   fill
@@ -83,7 +83,7 @@ export function ProjectsSection({
               >
                 <div className="relative overflow-hidden rounded-[1.2rem] bg-card sm:rounded-[1.4rem] md:rounded-[1.6rem]">
                   <div className="relative aspect-[1.1]">
-                    <Image
+                    <ExportedImage
                       src={project.image}
                       alt={project.alt}
                       fill
