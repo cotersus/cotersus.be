@@ -1,4 +1,4 @@
-import Image from 'next/image';
+import ExportedImage from 'next-image-export-optimizer';
 
 import { ActionButtons } from '@/components/ui/ActionButtons';
 import { Eyebrow } from '@/components/ui/Eyebrow';
@@ -60,7 +60,7 @@ export function HeroSection({
               className="group animate-hero-card animate-delay-2 relative overflow-hidden rounded-[2rem] bg-[#101418] shadow-[0_24px_60px_rgba(15,23,42,0.18)] dark:shadow-[0_24px_60px_rgba(0,0,0,0.35)] sm:rounded-[2.5rem]"
             >
               <div className="relative aspect-[1.02] sm:aspect-[1.06]">
-                <Image
+                <ExportedImage
                   src={primaryHero.image}
                   alt={primaryHero.alt}
                   fill
@@ -97,7 +97,7 @@ export function HeroSection({
                 className="group animate-hero-card-soft animate-delay-3 overflow-hidden rounded-[1.7rem] bg-[#12161b] shadow-[0_18px_40px_rgba(15,23,42,0.14)] dark:shadow-[0_18px_40px_rgba(0,0,0,0.28)] sm:rounded-[2rem]"
               >
                 <div className="relative aspect-[1.16] overflow-hidden">
-                  <Image
+                  <ExportedImage
                     src={secondaryHero.image}
                     alt={secondaryHero.alt}
                     fill
@@ -129,7 +129,7 @@ export function HeroSection({
                 className="group animate-hero-card-soft animate-delay-4 overflow-hidden rounded-[1.7rem] bg-[#101418] shadow-[0_18px_40px_rgba(15,23,42,0.14)] dark:shadow-[0_18px_40px_rgba(0,0,0,0.28)] sm:rounded-[2rem]"
               >
                 <div className="relative aspect-[1.16] overflow-hidden">
-                  <Image
+                  <ExportedImage
                     src={supportProject.image}
                     alt={supportProject.alt}
                     fill

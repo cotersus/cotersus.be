@@ -1,6 +1,8 @@
 import { MetadataRoute } from 'next';
 import { locales } from '@/i18n/config';
 
+export const dynamic = 'force-static';
+
 // Determine the base URL based on the environment
 const getBaseUrl = () => {
   if (process.env.VERCEL_URL) {

@@ -1,4 +1,4 @@
-import Image from 'next/image';
+import ExportedImage from 'next-image-export-optimizer';
 import Link from 'next/link';
 import logo from '@/public/logo.svg';
 import { Container } from '@/components/ui/Container';
@@ -54,7 +54,7 @@ export function Footer({ lang, content }: FooterProps) {
           <div className="max-w-md">
             <div className="mb-5 flex items-center gap-3">
               <div className="flex h-12 w-12 items-center justify-center rounded-full border border-white/10 bg-white/5">
-                <Image src={logo} alt={content.logoAlt} className="h-8 w-8" />
+                <ExportedImage src={logo} alt={content.logoAlt} className="h-8 w-8" />
               </div>
               <div>
                 <h3 className="font-display text-2xl text-white">{content.companyName}</h3>
