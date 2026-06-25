@@ -1,0 +1,80 @@
+version: 2
+
+updates:
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "tuesday"
+      time: "08:00"
+      timezone: "Europe/Brussels"
+    open-pull-requests-limit: 5
+    versioning-strategy: "increase-if-necessary"
+    rebase-strategy: "auto"
+    cooldown:
+      default-days: 3
+      semver-major-days: 21
+      semver-minor-days: 5
+      semver-patch-days: 2
+    labels:
+      - "dependencies"
+      - "npm"
+    commit-message:
+      prefix: "deps"
+      prefix-development: "deps-dev"
+      include: "scope"
+    groups:
+      next-react:
+        patterns:
+          - "next"
+          - "eslint-config-next"
+          - "react"
+          - "react-dom"
+          - "@types/react"
+          - "@types/react-dom"
+        update-types:
+          - "minor"
+          - "patch"
+      linting:
+        dependency-type: "development"
+        patterns:
+          - "eslint"
+          - "eslint-*"
+          - "@typescript-eslint/*"
+        update-types:
+          - "minor"
+          - "patch"
+      styling:
+        patterns:
+          - "tailwindcss"
+          - "@tailwindcss/*"
+          - "tailwind-merge"
+          - "postcss"
+          - "autoprefixer"
+        update-types:
+          - "minor"
+          - "patch"
+      testing:
+        dependency-type: "development"
+        patterns:
+          - "@playwright/*"
+        update-types:
+          - "minor"
+          - "patch"
+      dev-tooling:
+        dependency-type: "development"
+        update-types:
+          - "minor"
+          - "patch"
+      production-dependencies:
+        dependency-type: "production"
+        update-types:
+          - "minor"
+          - "patch"
+      security-patches:
+        applies-to: "security-updates"
+        patterns:
+          - "*"
+        update-types:
+          - "patch"
+          - "minor"
