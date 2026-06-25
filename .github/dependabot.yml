@@ -19,6 +19,8 @@ updates:
     labels:
       - "dependencies"
       - "npm"
+    assignees:
+      - "robinpellegrims"
     commit-message:
       prefix: "deps"
       prefix-development: "deps-dev"
